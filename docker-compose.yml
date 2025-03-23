@@ -1,0 +1,17 @@
+services:
+
+  db:
+    image: mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: laravel_todo
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_PASSWORD: password
+      MYSQL_USER: user
+    ports:
+      - 3306:3306
+    volumes:
+      - volume_laravel_todo:/var/lib/mysql/
+
+volumes:
+  volume_laravel_todo:
