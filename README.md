@@ -59,6 +59,30 @@ use HasRoles;
 };
 ```
 
+
+
 ## Aplicar seeder con base de datos fresca
 
 php artisan migrate:fresh --seed --seeder=MeAndMyTodosSeeder
+
+
+## Hacer deploy en Hostinguer sin tener acceso SSH
+
+Gerenciar dominio
+
+En la barra lateral seleccionar opciones avanzadas
+- Agregar repositorio con GIT
+- Activar implementacion automatica, addicionar webhook en github
+- Traer codigo con el boton Implementar
+- Crear Base de Datos
+- Con el Administrador de Archivos: 
+    - Mover todos los archivos del proyecto afuera de public_html
+    - Crear archivo .env
+    - Agregar valores de la base de datos al archivo .env
+    - Mover todo lo que está en public a html_public
+    - Subir la carpeta build de vite dentro de la carpeta **public**
+- migrar la base de datos usando un custom cron job que corra cada minuto, hora, mes, semana con el siguiente codigo
+
+```bash
+/usr/bin/php /home/<remplazaru123456789>/domains/<remplazar.com>/artisan migrate --force
+```
