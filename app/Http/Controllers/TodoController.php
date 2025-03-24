@@ -13,17 +13,17 @@ class TodoController extends Controller
      */
     public function index()
     {
-        return view("todos.index", [
-            "todos" => Auth::user()->todos
-        ]);
-    }
+        if(Auth::user()->can("view_todos"))
+        {
+            $todos = Todo::with("user")->get(); 
+        }
+        else {
+            $todos = Auth::user()->todos;
+        }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return view("todos.index", [
+            "todos" => $todos
+        ]);
     }
 
     /**
@@ -44,13 +44,6 @@ class TodoController extends Controller
         return redirect()->route("todos.index");
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Todo $todo)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.

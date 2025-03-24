@@ -86,3 +86,8 @@ En la barra lateral seleccionar opciones avanzadas
 ```bash
 /usr/bin/php /home/<remplazaru123456789>/domains/<remplazar.com>/artisan migrate --force
 ```
+
+## Activar imagenes
+
+php artisan storage:link
+ln -s /home/<remplazaru123456789>/domains/<remplazar.com>/storage/app/public /home/<remplazaru123456789>/domains/<remplazar.com>/public_html

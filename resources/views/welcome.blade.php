@@ -46,7 +46,7 @@
         </header>
         <div class="flex flex-col items-center justify-center w-full transition-opacity opacity-100 duration-750 lg:grow starting:opacity-0">
           <h1 class="text-2xl">Bienvenido a mi app de tareas pendientes</h1>
-          <img class="w-40" src="{{ Vite::asset('resources/images/notes.jpg') }}" alt="de para tomar notas">
+          <img class="w-40" src="/images/notes.jpg" alt="de para tomar notas">
           <p>usa tus credenciales para entrar</p>
         </div>
         @if (Route::has('login'))
